@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+        <title>WenchuanCSS</title>
+
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                extensions: ["tex2jax.js"],
+                "HTML-CSS": {
+                    scale: 95,
+                    availableFonts : ["Latin-Modern"],
+                    preferredFont : "Latin-Modern",
+                    webFont : "Latin-Modern",
+                    imageFont : null
+                }
+            });
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                }
+            });
+        </script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="css/wenchuan.css">
+
+    </head>
+    <body>
+
+        <div class="md">
+            <h1 id="toc_0">集合</h1>
+
+            <h2 id="toc_1">什么是集合？</h2>
+
+            <p>将身边的事物归类可能是人类最重要的一项天性了。这种对于归类的热衷不仅体现在我们对具体的事物分类上，也体现在由我们的想象力构建的那个抽象世界里将，例如，我们很早就意识到了自然数和剩余其他有理数之间的区别。</p>
+
+            <p><b>集合</b>就是一种归类的产物。在一个集合中，元素之间总是存在着某些共性；而正是这些共性，使这些元素得以成为一个集合。例如，全体有理数的集合中的每一个元素都满足 \(\frac{p}{q}\) 这种分数形式，其中，\(p\) 和 \(q\) 都是整数，且 \(q \ne 0\)。由此，我们便可以给出本书的第一个定义。</p>
+
+            <blockquote>
+            <p><b>定义：</b>一个集合是对具有某种共性的诸多对象的汇总。</p>
+            <p>逻辑上，并集与交集稍有不同。交集当表示“对所有 \(x\)，\(x \in A\) <strong>且</strong> \(x \in B\) 的时候，并集则表示，对所有 \(x\)，\(x \in A\)，<strong>或者</strong> \(x \in B\)，即</p>
+
+            <p>\[
+            A \cup B \iff (\forall x) \; x \in A \lor x \in B.
+            \]</p>
+            </blockquote>
+
+            <p>通常，我们总是习惯于用大写字母来表示元素的集合，而用小写字母表示集合中的元素。例如</p>
+
+            <p>\[
+            A = \{a, b, c, \dots \}.
+            \]</p>
+
+            <p>或者仅仅用下标对它们作出区分，例如</p>
+
+            <p>\[
+            A = \{a_1, a_2, a_3, \dots \}.
+            \]</p>
+
+            <p>并且，集合中的元素都是无序的，因此
+            \[
+            \{a,b,c\} = \{b,a,c\}
+            \]
+            如果我们说，一个元素 \(a\) 属于某个集合 \(A\)，那么，便可以写作
+            \[
+            a \in A.
+            \]</p>
+
+            <p>当然，像数学上许多其他概念一样，集合的表示并没有强制性的规定。之所以这么写，很多时候只是一种约定俗成。如果你愿意，在保证上下文的情况下，用汉字甚至 Emoji 去表示它们也是可以的。</p>
+
+            <h3 id="toc_2">子集和超集</h3>
+
+            <p>在传统中，我们也用一些特殊的字符来表示一些重要的集合。例如数系中，我们分别用</p>
+
+            <ul>
+            <li>\(\mathbb N\) 表示全体自然数集合 \(\{0, 1, 2, \dots\}\)；</li>
+            <li>\(\mathbb Z\) 表示全体整数集合 \(\{0, 1, -1, 2, -2, \dots \}\)；</li>
+            <li>\(\mathbb Q\) 表示全体有理数集合；</li>
+            <li>\(\mathbb R\) 表示全体实数集合；</li>
+            <li>\(\mathbb C\) 表示全体复数集合。</li>
+            </ul>
+
+            <p>上述这些集合之间，每一个都是上一个的扩展。或者更准确地说，任何一个元素如果存在于某个集合 \(A\) 内，那么它也一定存在于另一个集合 \(B\) 中。这个关系写作</p>
+
+            <p>\[
+            x \in A \implies x \in B.
+            \]</p>
+
+            <p>这时候，我们称 \(A\) 是 \(B\) 的子集，称 \(B\) 为 \(A\) 的超集，写作</p>
+
+            <p>\[
+            A \subseteq B.
+            \]</p>
+
+            <p>当 \(B\) 当中存在某些元素不属于 \(A\) 时，则 \(A\) 是 \(B\) 的真子集，而 \(B\) 是 \(A\) 的真超集，写作</p>
+
+            <p>\[
+            A \subset B.
+            \]</p>
+
+            <p>例如，上述那些数系中的集合就满足</p>
+
+            <p>\[
+            \mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R \subset \mathbb C
+            \]</p>
+
+            <p>的关系。</p>
+
+            <p>另外，当某两个集合存在互相包含的关系时，也就是说，对于任何元素 \(x \in A\)，当且仅当 \(x \in B\)，那么，\(A\) 和 \(B\) 就是全等的。这个关系中所包含的推演过程可以被描述为</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp; (\forall x)\;(x \in B \iff x \in A) \\
+            \iff &amp; A \subseteq B \land B \subseteq A \\
+            \iff &amp; A \equiv B.
+            \end{aligned}
+            \]</p>
+
+            <p>自然数集的真子集非零自然数集 \(\mathbb N^+\) 与整数集的真子集正整数集 \(\mathbb Z^+\) 之间就存在这种关系。前者的元素为 \(\{ 1, 2, 3, \dots \}\)，后者亦然，因此，\(\mathbb N^+ \equiv \mathbb Z^+\)。我们再次用符号将这个过程描述出来：</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp;(\forall x)\;(x \in \mathbb N^+ \iff x \in \mathbb Z^+) \\
+            \iff &amp; \mathbb N^+ \subseteq \mathbb Z^+ \land \mathbb Z^+ \subseteq \mathbb N^+ \\
+            \iff &amp; \mathbb N^+ \equiv \mathbb Z^+.
+            \end{aligned}
+            \]</p>
+
+            <h3 id="toc_3">1.2.3 集合的表示法</h3>
+
+            <h2 id="toc_4">集合的运算</h2>
+
+            <h3 id="toc_5">交集和并集</h3>
+
+            <h4 id="toc_6">交集</h4>
+
+            <p>假设我们有两个集合 \(A\) 和 \(B\)，这两个集合分别由一部分互相重合，那么，这个重合的部分便被我们称作 \(A\) 和 \(B\) 的交集，记作</p>
+
+            <p>\[
+            A \cap B.
+            \]</p>
+
+            <p>这个关系表示，现在这样一种元素，它在 \(A\) 中，并且同时在 \(B\) 中，也就是</p>
+
+            <p>\[
+            (\forall x) \; x \in A \land x \in B.
+            \]</p>
+
+            <p>这里，全体 \(x\) 构成了 \(A\) 和 \(B\) 的交集，因此是这两个集合之间的公共元素。当然了，\(A\) 和 \(B\) 可以完全没有这样的公共元素，也就是说它们之间的交集是一个空集（写作 \(\emptyset\)），即</p>
+
+            <p>\[
+            A \cap B = \emptyset.
+            \]</p>
+
+            <p>这时候，这两个元素就是不相交的。</p>
+
+            <h4 id="toc_7">并集</h4>
+
+            <p>逻辑上，并集与交集稍有不同。交集当表示“对所有 \(x\)，\(x \in A\) <strong>且</strong> \(x \in B\) 的时候，并集则表示，对所有 \(x\)，\(x \in A\)，<strong>或者</strong> \(x \in B\)，即</p>
+
+            <p>\[
+            A \cup B \iff (\forall x) \; x \in A \lor x \in B.
+            \]</p>
+
+            <p>我们可以将这个逻辑看作是 \(A\) 和 \(B\) 中所有元素的总和，但是，与算数中的加法所不同的是，\(A\cup B\) 中的元素个数并不总是等于 \(A\) 的元素个数加上 \(B\) 的元素个数，因为，集合中的元素是各不相同且不重复的，因此，对于这样两个集合</p>
+
+            <p>\[
+            A = \{1, 2, 3,\}, \quad B = \{2, 3, 5 \},
+            \]</p>
+
+            <p>它们的并集则是</p>
+
+            <p>\[
+            A\cup B = \{ 1, 2, 3, 5 \}.
+            \]</p>
+
+            <p>我们用 \(|A|\) 来表示一个集合的元素个数，于是就有</p>
+
+            <p>\[
+            |A| + |B| \le |A \cup B|.
+            \]</p>
+
+            <p>而只有当 \(A\) 与 \(B\) 不相交，即 \(A \cap B = \emptyset\) 时，这个不等式才取等号。此外的任何情况都取小于号，因为，任何两个集合的并都永远不可能产生新的元素！</p>
+
+            <p>那么 \(A \cup B\) 是否可以是一个空集？当然，\(A \cap B = \emptyset\)，当且仅当 \(A\) 和 \(B\) 都是空集，即</p>
+
+            <p>\[
+            A = B = \emptyset \iff A \cup B = \emptyset.
+            \]</p>
+
+            <h4 id="toc_8">并和交的基本运算法则</h4>
+
+            <p>以下是集合运算的一些基本法则：</p>
+
+            <h5 id="toc_9">定理（集合的运算法则）</h5>
+
+            <p>幂等律，即</p>
+
+            <p>\[
+            A \cup A = A, \quad A \cap A = A;
+            \]</p>
+
+            <p>交换律，即</p>
+
+            <p>\[
+            A \cup B = B \cup A, \quad A \cap B = B \cap A;
+            \]</p>
+
+            <p>结合律，即</p>
+
+            <p>\[
+            (A \cup B) \cup C = A \cup (B \cup C);
+            \]</p>
+
+            <p>结合律，即</p>
+
+            <p>\[
+            (A \cup B) \cap C = (A \cap C) \cup (B \cap C), \\
+            (A \cap B) \cup C = (A \cup C) \cap (B \cup C).
+            \]</p>
+
+            <p>该定律的前三条都十分容易证明，因此，我在这里仅对结合律的前半部分进行证明，来展示一下定理中其他部分的证明思路。根据《逻辑量化基础》中的“与或”运算定律中的结合律中的</p>
+
+            <p>\[
+            (A \lor B) \land C \iff (A \land C) \lor (B \land C)
+            \]</p>
+
+            <p>这一公式，我们可以得到</p>
+
+            <p>\[
+            \begin{aligned}
+            (A \cup B) \cap C &amp;\iff (x\in A \lor x \in B) \land x \in C \\
+            &amp;\iff (x \in A \land x \in C) \lor (x \in B \land x \in C) \\
+            &amp;\iff (A \cap C) \cup (B \cap C).
+            \end{aligned}
+            \]</p>
+
+            <h4 id="toc_10">补集</h4>
+
+            <p>对于任意两个集合 \(A\) 和 \(B\)，则 \(A\) 在 \(B\) 中的补集被定义为，所有属于 \(A\) 但不属于 \(B\) 的元素，记作 \(A \setminus B\)。</p>
+
+            <p>需要注意的是，虽然这个关系时常被写作 \(A - B\)，但与算数中的减法所不同的是，虽然 \(A = B\) 隐含 \(A \setminus B = \emptyset\)，但是，反过来，\(A \setminus B = \emptyset\) 则不隐含 \(A = B\)。例如，我们有两个集合</p>
+
+            <p>\[
+            A = \{ 1, 2 \}, \quad B = \{ 1, 2, 3 \}
+            \]</p>
+
+            <p>这时，依然有 \(A \setminus B = \emptyset\)。且此时，\(A \subseteq B\)。 </p>
+
+            <p>由此，我们可以推导出以下命题：</p>
+
+            <hr/>
+
+            <h5 id="toc_11">命题</h5>
+
+            <p>如果 \(A\) 是 \(B\) 的子集，则 \(A \setminus B = \emptyset\)，即</p>
+
+            <p>\[
+            A \subseteq B \iff A \setminus B = \emptyset.
+            \]</p>
+
+            <p><strong>证明：</strong>我们用反证法证明这个命题。假设，对于 \(\neg(A \subseteq B)\)，也就是对于 \(A \supset B\)，\(A \setminus B = \emptyset\) 依然成立，那么，因为 \(A \supset B\) 隐含必定存在一些 \(x\) 满足</p>
+
+            <p>\[
+            \begin{aligned}
+            (\exists x)\; (x \in A \land x \notin B)
+            \iff (\exists x) \; (x \in  A \setminus B).
+            \end{aligned}
+            \]</p>
+
+            <p>在《逻辑量化基础》这一章中，我们提到过存在量化符号 \(\exists\) 表示此处必须至少有一个的 \(x\) 是命题成立，那么，根据上述证明，\(A \setminus B \ne \emptyset\)，这与我们的假设本身矛盾，因此，证明了该命题成立。</p>
+
+            <hr/>
+
+            <p>补集的另外一个不同之处在于，虽然 \(B = \emptyset\) 隐含 \(A \setminus B = A\)，但反过来 \(A \setminus B = A\) 却不隐含 \(B = \emptyset\)。例如，对于两个集合</p>
+
+            <p>\[
+            A = \{ 0, 1, 2 \}, \quad B=\{ 3, 4, 5 \},
+            \]</p>
+
+            <p>则 \(A \setminus B = A\)。这时，\(A \cap B = \emptyset\)。因此，我们可以得出下一个命题：</p>
+
+            <hr/>
+
+            <h5 id="toc_12">命题</h5>
+
+            <p>对于任意两个集合 \(A\) 和 \(B\)，\(A\) 在 \(B\) 中的补集为 \(A\) 本身，当且仅当 \(A\) 和 \(B\) 的交为空集。</p>
+
+            <p>\[
+            A \setminus B = A \iff A \cap B = \emptyset.
+            \]</p>
+
+            <p><strong>证明：</strong>首先，如果 \(B = \emptyset\)，则这个命题是成立的。对此，我们不需要更多证明。</p>
+
+            <p>其次，如果 \(B \ne \emptyset\)，那么，利用反证法，假设 \(A \cap B\) 中存在某些元素 \(x\) 使得 \(A \setminus B\) 依然成立，则有</p>
+
+            <p>\[
+            \begin{aligned}
+            (\exists x) \; (x \in A \cap B) &amp;\iff (\exists x) \; (x \in A \land x \in B) \\
+            &amp;\iff (\exists x) \; (A \setminus \{ x \} \ne A ) \\
+            \end{aligned}
+            \]</p>
+
+            <p>因为这些 \(x\) 同样存在于 \(B\) 中，因此，\(A \setminus B\) 中的元素数量不会多于 \(A \setminus \{x \}\)，因此得到</p>
+
+            <p>\[
+            A \setminus B \ne A.
+            \]</p>
+
+            <p>这个结果与我们的假设是矛盾的，由此证明该命题为真。</p>
+
+            <hr/>
+
+            <h5 id="toc_13">推论</h5>
+
+            <p>\[
+            A \setminus B \setminus C = A \setminus (B \cup C)
+            \]</p>
+
+            <hr/>
+
+            <h5 id="toc_14">例</h5>
+
+            <p>全体无理数的集合是<b>有理数集</b> \(\mathbb Q\) 在实数集 \(\mathbb R\) 中的补集，即 \(\mathbb R \setminus \mathbb Q\)；而因为 \(\mathbb Q\) 是 \(\mathbb R\) 的一个子集，因此，\(\mathbb R\) 在 \(\mathbb Q\) 中的补集是一个空集，即 \(\mathbb Q \setminus \mathbb R = \emptyset\)。</p>
+
+            <p>因为无理数集与有理数集 \(\mathbb Q\) 的交集为空集，有理数集在无理数集中的补集为无理数集本身</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp; (\mathbb R \setminus \mathbb Q) \cap \mathbb Q = \emptyset \\
+            \iff &amp; (\mathbb R \setminus \mathbb Q) \setminus \mathbb Q = \mathbb R \setminus (\mathbb Q \cup \mathbb Q) = \mathbb R \setminus \mathbb Q
+            \end{aligned}
+            \]</p>
+
+            <h2 id="toc_15">无限并集和无限交集</h2>
+
+            <p>在上一节，我们主要讨论了有限个集合之间的运算。通过集合运算的基本法则，我们总是可以对任意多个集合进行运算，并且组合出更多更有趣的定理。其中包括著名的德摩根定律（De Morgan&#39;s Laws）：</p>
+
+            <p>\[
+            S \setminus (A \cup B) = (S \setminus A) \cap (S \setminus B),\\
+            S \setminus (A \cap B) = (S \setminus A) \cup (S \setminus B).
+            \]</p>
+
+            <p>我们可以用集合代数的方法去证明这两条定律，就像我们上一节已经做过的那样，也可以用图像来思考其合理性（在处理有限集合的时候，我个人更倾向于后者）。</p>
+
+            <p>例如，对于上述德摩根定律中的第一条，我们可以在一个空间 \(S\) 中，画两个圈（暂不用管它们是否相交），分别代表 \(A\) 和 \(B\)。其次，我们找到 \(A \cup B\) 的部分。再次，我们找到 \(A \cup B\) 以外的部分，即这个部分在 \(S\) 中的补集 \(S \setminus (A \cup B)\)。从图像中，不论 \(A\) 和 \(B\) 相交与否，我们都可以很轻易地观察到，这个补集就等于 \((S \setminus A) \cap (S \setminus B)\)。从而，这种图像观察也就等价于我们需要的证明过程。</p>
+
+            <p>如果你愿意，你也可以尝试对更多集合的情况进行检验，看看它们是否也符合德摩根法则——我很推荐这样尝试一下，因为在数学中，直观是非常重要的！总之，你会得到以下结论：</p>
+
+            <p>\[
+            \begin{aligned}
+            S \setminus (A \cup B \cup C) &amp;= (S \setminus A) \cap (S \setminus B) \cap (S \setminus C); \\
+            S \setminus (A \cup B \cup C \cup D) &amp;= (S \setminus A) \cap (S \setminus B) \cap (S \setminus C) \cap (S \setminus D); \\
+            &amp;\dots .
+            \end{aligned}
+            \]</p>
+
+            <p>你很容易联想到，德摩根定律或许对任意多个（比如无限多个）集合都有效，即</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp; S \setminus (A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n \cup \dots) \\
+            =&amp; (S \setminus A_1) \cap (S \setminus A_2) \cap (S \setminus A_3) \cap \dots \cap (S \setminus A_n) \cap \cdots
+            \end{aligned}
+            \]</p>
+
+            <p>也是成立的。为了证明这样一种观点，我们需要引入两种新的概念，即无限并集和无限交集。</p>
+
+            <h3 id="toc_16">基本符号及其含义</h3>
+
+            <p>无限并集的符号 \(\bigcup\) 与无限交集的符号 \(\bigcap\) 的定义十分简单。对于 \(n\) 个集合的并集于交集，我们分别可以写作</p>
+
+            <p>\[
+            \bigcup_{i=1}^n A_i, \quad
+            \bigcap_{i=1}^n A_i.
+            \]</p>
+
+            <p>其中，\(n\) 控制着集合的数量，如果 \(n = 3\)，则代表</p>
+
+            <p>\[
+            \bigcup_{i=1}^3 A_i = A_1 \cup A_2 \cup A_3; \\
+            \bigcap_{i=1}^3 A_i = A_1 \cap A_2 \cap A_3.
+            \]</p>
+
+            <p>当然，如果我们把 \(n\) 换做 \(\infty\)，那么，就可以得到一个名副其实的无限并集或无限交集：
+            \[
+            \bigcup_{i=1}^\infty A_i = A_1 \cup A_2 \cup \dots \cup A_n \cup \dots , \\
+            \bigcap_{i=1}^\infty A_i = A_1 \cap A_2 \cap \dots \cap A_n \cap \dots .
+            \]</p>
+
+            <p>这两者分别代表
+            \[
+            x\in \bigcup_{i=1}^\infty A_i \iff x\in \{ A_1 \cup A_2 \cup \dots \cup A_n \cup \dots \} , \\
+            x\in \bigcap_{i=1}^\infty A_i \iff x\in \{ A_1 \cap A_2 \cap \dots \cap A_n \cap \dots \} .
+            \]
+            总是把集合元素一一列举出来的做法似乎有些麻烦，对此，我们可以对其进行重新描述：
+            \[
+            x\in \bigcup_{i\in I} A_i \iff \exists i \in I, \; x \in A_i ,\\
+            x\in \bigcap_{i\in I} A_i \iff \forall i \in I, \; x \in A_i .
+            \]
+            这里，存在量化 \(\exists\) 和全称量化 \(\forall\) 在使用上的不同，表示了一种重要的区分。其中，
+            \[
+            \exists i \in I, \; x \in A_i \iff x \in A_1 \lor x\in A_2 \lor x \in A_3 \lor \dots , \\
+            \forall i \in I, \; x \in A_i \iff x \in A_1 \land x\in A_2 \land x\in A_3 \land \dots.
+            \]
+            例如，如果 \(I = \{ 1,2,3 \}\)，那么，就有
+            \[
+            \exists i \in \{1,2,3\}, x\in A_i \iff x \in A_1 \lor x \in A_2 \lor x \in A_3 \iff x \in \bigcup_i^3 A_i \\
+            \forall i \in \{1,2,3\}, x\in A_i \iff x \in A_1 \land x \in A_2 \land x \in A_3 \iff x \in \bigcap_i^3 A_i
+            \]</p>
+
+            <h3 id="toc_17">运用起来</h3>
+
+            <h5 id="toc_18">引理</h5>
+
+            <p>\[
+            \forall i, \; x \notin A_i \iff x \notin \bigcup_i A_i; \\
+            \exists i, \; x \notin A_i \iff x \notin \bigcap_i A_i.
+            \]</p>
+
+            <p><strong>证明：</strong>
+            \[
+            \begin{aligned}
+            \forall i, \; x \notin A_i
+            &amp;\iff \neg(x \in A_1 \land x\in A_2 \land x \in A_3 \land \dots) \\
+            &amp;\iff x \notin A_1 \lor x \notin A_2 \lor x \notin A_3 \lor \dots \\
+            &amp;\iff x \in \neg A_1 \lor x \in \neg A_2 \lor x \in \neg A_3 \lor \dots \\
+            &amp;\iff \exists i, \; x \in \neg A_i \\
+            &amp;\iff x \in \neg \bigcup_i A_i \\
+            &amp;\iff x \notin \bigcup_i A_i.
+            \end{aligned}
+            \]</p>
+
+            <h5 id="toc_19">定理（德摩根定律）：</h5>
+
+            <h2 id="toc_20">笛卡尔乘积</h2>
+            <h1 id="toc_0">集合</h1>
+
+            <h2 id="toc_1">什么是集合？</h2>
+
+            <p>将身边的事物归类可能是人类最重要的一项天性了。这种对于归类的热衷不仅体现在我们对具体的事物分类上，也体现在由我们的想象力构建的那个抽象世界里将，例如，我们很早就意识到了自然数和剩余其他有理数之间的区别。</p>
+
+            <p>集合就是一种归类的产物。在一个集合中，元素之间总是存在着某些共性；而正是这些共性，使这些元素得以成为一个集合。例如，全体有理数的集合中的每一个元素都满足 \(\frac{p}{q}\) 这种分数形式，其中，\(p\) 和 \(q\) 都是整数，且 \(q \ne 0\)。由此，我们便可以给出本书的第一个定义。</p>
+
+            <blockquote>
+            <p><strong>定义：</strong>一个集合是对具有某种共性的诸多对象的汇总。</p>
+            </blockquote>
+
+            <p>通常，我们总是习惯于用大写字母来表示元素的集合，而用小写字母表示集合中的元素。例如</p>
+
+            <p>\[
+            A = \{a, b, c, \dots \}.
+            \]</p>
+
+            <p>或者仅仅用下标对它们作出区分，例如</p>
+
+            <p>\[
+            A = \{a_1, a_2, a_3, \dots \}.
+            \]</p>
+
+            <p>并且，集合中的元素都是无序的，因此
+            \[
+            \{a,b,c\} = \{b,a,c\}
+            \]
+            如果我们说，一个元素 \(a\) 属于某个集合 \(A\)，那么，便可以写作
+            \[
+            a \in A.
+            \]</p>
+
+            <p>当然，像数学上许多其他概念一样，集合的表示并没有强制性的规定。之所以这么写，很多时候只是一种约定俗成。如果你愿意，在保证上下文的情况下，用汉字甚至 Emoji 去表示它们也是可以的。</p>
+
+            <h3 id="toc_2">子集和超集</h3>
+
+            <p>在传统中，我们也用一些特殊的字符来表示一些重要的集合。例如数系中，我们分别用</p>
+
+            <ul>
+            <li>\(\mathbb N\) 表示全体自然数集合 \(\{0, 1, 2, \dots\}\)；</li>
+            <li>\(\mathbb Z\) 表示全体整数集合 \(\{0, 1, -1, 2, -2, \dots \}\)；</li>
+            <li>\(\mathbb Q\) 表示全体有理数集合；</li>
+            <li>\(\mathbb R\) 表示全体实数集合；</li>
+            <li>\(\mathbb C\) 表示全体复数集合。</li>
+            </ul>
+
+            <p>上述这些集合之间，每一个都是上一个的扩展。或者更准确地说，任何一个元素如果存在于某个集合 \(A\) 内，那么它也一定存在于另一个集合 \(B\) 中。这个关系写作</p>
+
+            <p>\[
+            x \in A \implies x \in B.
+            \]</p>
+
+            <p>这时候，我们称 \(A\) 是 \(B\) 的子集，称 \(B\) 为 \(A\) 的超集，写作</p>
+
+            <p>\[
+            A \subseteq B.
+            \]</p>
+
+            <p>当 \(B\) 当中存在某些元素不属于 \(A\) 时，则 \(A\) 是 \(B\) 的真子集，而 \(B\) 是 \(A\) 的真超集，写作</p>
+
+            <p>\[
+            A \subset B.
+            \]</p>
+
+            <p>例如，上述那些数系中的集合就满足</p>
+
+            <p>\[
+            \mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R \subset \mathbb C
+            \]</p>
+
+            <p>的关系。</p>
+
+            <p>另外，当某两个集合存在互相包含的关系时，也就是说，对于任何元素 \(x \in A\)，当且仅当 \(x \in B\)，那么，\(A\) 和 \(B\) 就是全等的。这个关系中所包含的推演过程可以被描述为</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp; (\forall x)\;(x \in B \iff x \in A) \\
+            \iff &amp; A \subseteq B \land B \subseteq A \\
+            \iff &amp; A \equiv B.
+            \end{aligned}
+            \]</p>
+
+            <p>自然数集的真子集非零自然数集 \(\mathbb N^+\) 与整数集的真子集正整数集 \(\mathbb Z^+\) 之间就存在这种关系。前者的元素为 \(\{ 1, 2, 3, \dots \}\)，后者亦然，因此，\(\mathbb N^+ \equiv \mathbb Z^+\)。我们再次用符号将这个过程描述出来：</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp;(\forall x)\;(x \in \mathbb N^+ \iff x \in \mathbb Z^+) \\
+            \iff &amp; \mathbb N^+ \subseteq \mathbb Z^+ \land \mathbb Z^+ \subseteq \mathbb N^+ \\
+            \iff &amp; \mathbb N^+ \equiv \mathbb Z^+.
+            \end{aligned}
+            \]</p>
+
+            <h3 id="toc_3">1.2.3 集合的表示法</h3>
+
+            <h2 id="toc_4">集合的运算</h2>
+
+            <h3 id="toc_5">交集和并集</h3>
+
+            <h4 id="toc_6">交集</h4>
+
+            <p>假设我们有两个集合 \(A\) 和 \(B\)，这两个集合分别由一部分互相重合，那么，这个重合的部分便被我们称作 \(A\) 和 \(B\) 的交集，记作</p>
+
+            <p>\[
+            A \cap B.
+            \]</p>
+
+            <p>这个关系表示，现在这样一种元素，它在 \(A\) 中，并且同时在 \(B\) 中，也就是</p>
+
+            <p>\[
+            (\forall x) \; x \in A \land x \in B.
+            \]</p>
+
+            <p>这里，全体 \(x\) 构成了 \(A\) 和 \(B\) 的交集，因此是这两个集合之间的公共元素。当然了，\(A\) 和 \(B\) 可以完全没有这样的公共元素，也就是说它们之间的交集是一个空集（写作 \(\emptyset\)），即</p>
+
+            <p>\[
+            A \cap B = \emptyset.
+            \]</p>
+
+            <p>这时候，这两个元素就是不相交的。</p>
+
+            <h4 id="toc_7">并集</h4>
+
+            <p>逻辑上，并集与交集稍有不同。交集当表示“对所有 \(x\)，\(x \in A\) <strong>且</strong> \(x \in B\) 的时候，并集则表示，对所有 \(x\)，\(x \in A\)，<strong>或者</strong> \(x \in B\)，即</p>
+
+            <p>\[
+            A \cup B \iff (\forall x) \; x \in A \lor x \in B.
+            \]</p>
+
+            <p>我们可以将这个逻辑看作是 \(A\) 和 \(B\) 中所有元素的总和，但是，与算数中的加法所不同的是，\(A\cup B\) 中的元素个数并不总是等于 \(A\) 的元素个数加上 \(B\) 的元素个数，因为，集合中的元素是各不相同且不重复的，因此，对于这样两个集合</p>
+
+            <p>\[
+            A = \{1, 2, 3,\}, \quad B = \{2, 3, 5 \},
+            \]</p>
+
+            <p>它们的并集则是</p>
+
+            <p>\[
+            A\cup B = \{ 1, 2, 3, 5 \}.
+            \]</p>
+
+            <p>我们用 \(|A|\) 来表示一个集合的元素个数，于是就有</p>
+
+            <p>\[
+            |A| + |B| \le |A \cup B|.
+            \]</p>
+
+            <p>而只有当 \(A\) 与 \(B\) 不相交，即 \(A \cap B = \emptyset\) 时，这个不等式才取等号。此外的任何情况都取小于号，因为，任何两个集合的并都永远不可能产生新的元素！</p>
+
+            <p>那么 \(A \cup B\) 是否可以是一个空集？当然，\(A \cap B = \emptyset\)，当且仅当 \(A\) 和 \(B\) 都是空集，即</p>
+
+            <p>\[
+            A = B = \emptyset \iff A \cup B = \emptyset.
+            \]</p>
+
+            <h4 id="toc_8">并和交的基本运算法则</h4>
+
+            <p>以下是集合运算的一些基本法则：</p>
+
+            <h5 id="toc_9">定理（集合的运算法则）</h5>
+
+            <p>幂等律，即</p>
+
+            <p>\[
+            A \cup A = A, \quad A \cap A = A;
+            \]</p>
+
+            <p>交换律，即</p>
+
+            <p>\[
+            A \cup B = B \cup A, \quad A \cap B = B \cap A;
+            \]</p>
+
+            <p>结合律，即</p>
+
+            <p>\[
+            (A \cup B) \cup C = A \cup (B \cup C);
+            \]</p>
+
+            <p>结合律，即</p>
+
+            <p>\[
+            (A \cup B) \cap C = (A \cap C) \cup (B \cap C), \\
+            (A \cap B) \cup C = (A \cup C) \cap (B \cup C).
+            \]</p>
+
+            <p>该定律的前三条都十分容易证明，因此，我在这里仅对结合律的前半部分进行证明，来展示一下定理中其他部分的证明思路。根据《逻辑量化基础》中的“与或”运算定律中的结合律中的</p>
+
+            <p>\[
+            (A \lor B) \land C \iff (A \land C) \lor (B \land C)
+            \]</p>
+
+            <p>这一公式，我们可以得到</p>
+
+            <p>\[
+            \begin{aligned}
+            (A \cup B) \cap C &amp;\iff (x\in A \lor x \in B) \land x \in C \\
+            &amp;\iff (x \in A \land x \in C) \lor (x \in B \land x \in C) \\
+            &amp;\iff (A \cap C) \cup (B \cap C).
+            \end{aligned}
+            \]</p>
+
+            <h4 id="toc_10">补集</h4>
+
+            <p>对于任意两个集合 \(A\) 和 \(B\)，则 \(A\) 在 \(B\) 中的补集被定义为，所有属于 \(A\) 但不属于 \(B\) 的元素，记作 \(A \setminus B\)。</p>
+
+            <p>需要注意的是，虽然这个关系时常被写作 \(A - B\)，但与算数中的减法所不同的是，虽然 \(A = B\) 隐含 \(A \setminus B = \emptyset\)，但是，反过来，\(A \setminus B = \emptyset\) 则不隐含 \(A = B\)。例如，我们有两个集合</p>
+
+            <p>\[
+            A = \{ 1, 2 \}, \quad B = \{ 1, 2, 3 \}
+            \]</p>
+
+            <p>这时，依然有 \(A \setminus B = \emptyset\)。且此时，\(A \subseteq B\)。 </p>
+
+            <p>由此，我们可以推导出以下命题：</p>
+
+            <hr/>
+
+            <h5 id="toc_11">命题</h5>
+
+            <p>如果 \(A\) 是 \(B\) 的子集，则 \(A \setminus B = \emptyset\)，即</p>
+
+            <p>\[
+            A \subseteq B \iff A \setminus B = \emptyset.
+            \]</p>
+
+            <p><strong>证明：</strong>我们用反证法证明这个命题。假设，对于 \(\neg(A \subseteq B)\)，也就是对于 \(A \supset B\)，\(A \setminus B = \emptyset\) 依然成立，那么，因为 \(A \supset B\) 隐含必定存在一些 \(x\) 满足</p>
+
+            <p>\[
+            \begin{aligned}
+            (\exists x)\; (x \in A \land x \notin B)
+            \iff (\exists x) \; (x \in  A \setminus B).
+            \end{aligned}
+            \]</p>
+
+            <p>在《逻辑量化基础》这一章中，我们提到过存在量化符号 \(\exists\) 表示此处必须至少有一个的 \(x\) 是命题成立，那么，根据上述证明，\(A \setminus B \ne \emptyset\)，这与我们的假设本身矛盾，因此，证明了该命题成立。</p>
+
+            <hr/>
+
+            <p>补集的另外一个不同之处在于，虽然 \(B = \emptyset\) 隐含 \(A \setminus B = A\)，但反过来 \(A \setminus B = A\) 却不隐含 \(B = \emptyset\)。例如，对于两个集合</p>
+
+            <p>\[
+            A = \{ 0, 1, 2 \}, \quad B=\{ 3, 4, 5 \},
+            \]</p>
+
+            <p>则 \(A \setminus B = A\)。这时，\(A \cap B = \emptyset\)。因此，我们可以得出下一个命题：</p>
+
+            <hr/>
+
+            <h5 id="toc_12">命题</h5>
+
+            <p>对于任意两个集合 \(A\) 和 \(B\)，\(A\) 在 \(B\) 中的补集为 \(A\) 本身，当且仅当 \(A\) 和 \(B\) 的交为空集。</p>
+
+            <p>\[
+            A \setminus B = A \iff A \cap B = \emptyset.
+            \]</p>
+
+            <p><strong>证明：</strong>首先，如果 \(B = \emptyset\)，则这个命题是成立的。对此，我们不需要更多证明。</p>
+
+            <p>其次，如果 \(B \ne \emptyset\)，那么，利用反证法，假设 \(A \cap B\) 中存在某些元素 \(x\) 使得 \(A \setminus B\) 依然成立，则有</p>
+
+            <p>\[
+            \begin{aligned}
+            (\exists x) \; (x \in A \cap B) &amp;\iff (\exists x) \; (x \in A \land x \in B) \\
+            &amp;\iff (\exists x) \; (A \setminus \{ x \} \ne A ) \\
+            \end{aligned}
+            \]</p>
+
+            <p>因为这些 \(x\) 同样存在于 \(B\) 中，因此，\(A \setminus B\) 中的元素数量不会多于 \(A \setminus \{x \}\)，因此得到</p>
+
+            <p>\[
+            A \setminus B \ne A.
+            \]</p>
+
+            <p>这个结果与我们的假设是矛盾的，由此证明该命题为真。</p>
+
+            <hr/>
+
+            <h5 id="toc_13">推论</h5>
+
+            <p>\[
+            A \setminus B \setminus C = A \setminus (B \cup C)
+            \]</p>
+
+            <hr/>
+
+            <h5 id="toc_14">例</h5>
+
+            <p>全体无理数的集合是有理数集 \(\mathbb Q\) 在实数集 \(\mathbb R\) 中的补集，即 \(\mathbb R \setminus \mathbb Q\)；而因为 \(\mathbb Q\) 是 \(\mathbb R\) 的一个子集，因此，\(\mathbb R\) 在 \(\mathbb Q\) 中的补集是一个空集，即 \(\mathbb Q \setminus \mathbb R = \emptyset\)。</p>
+
+            <p>因为无理数集与有理数集 \(\mathbb Q\) 的交集为空集，有理数集在无理数集中的补集为无理数集本身</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp; (\mathbb R \setminus \mathbb Q) \cap \mathbb Q = \emptyset \\
+            \iff &amp; (\mathbb R \setminus \mathbb Q) \setminus \mathbb Q = \mathbb R \setminus (\mathbb Q \cup \mathbb Q) = \mathbb R \setminus \mathbb Q
+            \end{aligned}
+            \]</p>
+
+            <h2 id="toc_15">无限并集和无限交集</h2>
+
+            <p>在上一节，我们主要讨论了有限个集合之间的运算。通过集合运算的基本法则，我们总是可以对任意多个集合进行运算，并且组合出更多更有趣的定理。其中包括著名的德摩根定律（De Morgan&#39;s Laws）：</p>
+
+            <p>\[
+            S \setminus (A \cup B) = (S \setminus A) \cap (S \setminus B),\\
+            S \setminus (A \cap B) = (S \setminus A) \cup (S \setminus B).
+            \]</p>
+
+            <p>我们可以用集合代数的方法去证明这两条定律，就像我们上一节已经做过的那样，也可以用图像来思考其合理性（在处理有限集合的时候，我个人更倾向于后者）。</p>
+
+            <p>例如，对于上述德摩根定律中的第一条，我们可以在一个空间 \(S\) 中，画两个圈（暂不用管它们是否相交），分别代表 \(A\) 和 \(B\)。其次，我们找到 \(A \cup B\) 的部分。再次，我们找到 \(A \cup B\) 以外的部分，即这个部分在 \(S\) 中的补集 \(S \setminus (A \cup B)\)。从图像中，不论 \(A\) 和 \(B\) 相交与否，我们都可以很轻易地观察到，这个补集就等于 \((S \setminus A) \cap (S \setminus B)\)。从而，这种图像观察也就等价于我们需要的证明过程。</p>
+
+            <p>如果你愿意，你也可以尝试对更多集合的情况进行检验，看看它们是否也符合德摩根法则——我很推荐这样尝试一下，因为在数学中，直观是非常重要的！总之，你会得到以下结论：</p>
+
+            <p>\[
+            \begin{aligned}
+            S \setminus (A \cup B \cup C) &amp;= (S \setminus A) \cap (S \setminus B) \cap (S \setminus C); \\
+            S \setminus (A \cup B \cup C \cup D) &amp;= (S \setminus A) \cap (S \setminus B) \cap (S \setminus C) \cap (S \setminus D); \\
+            &amp;\dots .
+            \end{aligned}
+            \]</p>
+
+            <p>你很容易联想到，德摩根定律或许对任意多个（比如无限多个）集合都有效，即</p>
+
+            <p>\[
+            \begin{aligned}
+            &amp; S \setminus (A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n \cup \dots) \\
+            =&amp; (S \setminus A_1) \cap (S \setminus A_2) \cap (S \setminus A_3) \cap \dots \cap (S \setminus A_n) \cap \cdots
+            \end{aligned}
+            \]</p>
+
+            <p>也是成立的。为了证明这样一种观点，我们需要引入两种新的概念，即无限并集和无限交集。</p>
+
+            <h3 id="toc_16">基本符号及其含义</h3>
+
+            <p>无限并集的符号 \(\bigcup\) 与无限交集的符号 \(\bigcap\) 的定义十分简单。对于 \(n\) 个集合的并集于交集，我们分别可以写作</p>
+
+            <p>\[
+            \bigcup_{i=1}^n A_i, \quad
+            \bigcap_{i=1}^n A_i.
+            \]</p>
+
+            <p>其中，\(n\) 控制着集合的数量，如果 \(n = 3\)，则代表</p>
+
+            <p>\[
+            \bigcup_{i=1}^3 A_i = A_1 \cup A_2 \cup A_3; \\
+            \bigcap_{i=1}^3 A_i = A_1 \cap A_2 \cap A_3.
+            \]</p>
+
+            <p>当然，如果我们把 \(n\) 换做 \(\infty\)，那么，就可以得到一个名副其实的无限并集或无限交集：
+            \[
+            \bigcup_{i=1}^\infty A_i = A_1 \cup A_2 \cup \dots \cup A_n \cup \dots , \\
+            \bigcap_{i=1}^\infty A_i = A_1 \cap A_2 \cap \dots \cap A_n \cap \dots .
+            \]</p>
+
+            <p>这两者分别代表
+            \[
+            x\in \bigcup_{i=1}^\infty A_i \iff x\in \{ A_1 \cup A_2 \cup \dots \cup A_n \cup \dots \} , \\
+            x\in \bigcap_{i=1}^\infty A_i \iff x\in \{ A_1 \cap A_2 \cap \dots \cap A_n \cap \dots \} .
+            \]
+            总是把集合元素一一列举出来的做法似乎有些麻烦，对此，我们可以对其进行重新描述：
+            \[
+            x\in \bigcup_{i\in I} A_i \iff \exists i \in I, \; x \in A_i ,\\
+            x\in \bigcap_{i\in I} A_i \iff \forall i \in I, \; x \in A_i .
+            \]
+            这里，存在量化 \(\exists\) 和全称量化 \(\forall\) 在使用上的不同，表示了一种重要的区分。其中，
+            \[
+            \exists i \in I, \; x \in A_i \iff x \in A_1 \lor x\in A_2 \lor x \in A_3 \lor \dots , \\
+            \forall i \in I, \; x \in A_i \iff x \in A_1 \land x\in A_2 \land x\in A_3 \land \dots.
+            \]
+            例如，如果 \(I = \{ 1,2,3 \}\)，那么，就有
+            \[
+            \exists i \in \{1,2,3\}, x\in A_i \iff x \in A_1 \lor x \in A_2 \lor x \in A_3 \iff x \in \bigcup_i^3 A_i \\
+            \forall i \in \{1,2,3\}, x\in A_i \iff x \in A_1 \land x \in A_2 \land x \in A_3 \iff x \in \bigcap_i^3 A_i
+            \]</p>
+
+            <h3 id="toc_17">运用起来</h3>
+
+            <h5 id="toc_18">引理</h5>
+
+            <p>\[
+            \forall i, \; x \notin A_i \iff x \notin \bigcup_i A_i; \\
+            \exists i, \; x \notin A_i \iff x \notin \bigcap_i A_i.
+            \]</p>
+
+            <p><strong>证明：</strong>
+            \[
+            \begin{aligned}
+            \forall i, \; x \notin A_i
+            &amp;\iff \neg(x \in A_1 \land x\in A_2 \land x \in A_3 \land \dots) \\
+            &amp;\iff x \notin A_1 \lor x \notin A_2 \lor x \notin A_3 \lor \dots \\
+            &amp;\iff x \in \neg A_1 \lor x \in \neg A_2 \lor x \in \neg A_3 \lor \dots \\
+            &amp;\iff \exists i, \; x \in \neg A_i \\
+            &amp;\iff x \in \neg \bigcup_i A_i \\
+            &amp;\iff x \notin \bigcup_i A_i.
+            \end{aligned}
+            \]</p>
+
+            <h5 id="toc_19">定理（德摩根定律）：</h5>
+
+            <h2 id="toc_20">笛卡尔乘积</h2>
+
+
+        </div>
+
+
+    </body>
+</html>
