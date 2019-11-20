@@ -1,11 +1,13 @@
 %jumpToId
+    // 这里主要用来控制标题间的跳转，以 `<h1 id="...">` 的形式
     content: ""
     display: block
     margin-top: calc(-1em - 56px) // 一倍间距 + 浏览器高度 // 负数
     height: calc(1em + 56px) // 一倍间距 + 浏览器高度
     visibility: hidden
 
-.id
+.anchor
+    // 对于有一些需要额外进行跳转的锚点
     &::before
         @extend %jumpToId
 

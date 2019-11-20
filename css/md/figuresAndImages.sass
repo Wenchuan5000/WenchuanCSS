@@ -1,0 +1,31 @@
+img, figure
+    margin: 0 auto
+
+&>
+    figure,
+    img,
+    p > img
+        margin-top: 1.5rem
+        margin-bottom: 1.5rem
+
+&>
+    figure img,
+    p > img
+        @media only screen and (max-width: $mdContentSpace-x)
+            max-width: $imgStretch
+            width: auto
+            margin-left: -1rem
+
+figure
+    figcaption
+        text-align: left
+        font-size: 0.875rem
+        margin-top: 0.5rem
+        color: rgba(black, 0.4)
+
+        p
+            &:first-of-type
+                margin-top: 0
+
+            &:last-of-type
+                margin-bottom: 0
