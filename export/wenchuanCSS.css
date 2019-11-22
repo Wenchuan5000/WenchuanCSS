@@ -154,7 +154,7 @@ body {
   body blockquote {
     margin: 1.5rem 0;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 0px 1rem; }
+    padding: 0 1rem; }
   body img, body figure {
     margin: 0 auto; }
   body > figure,
@@ -178,6 +178,7 @@ body {
     body figure figcaption p:last-of-type {
       margin-bottom: 0; }
   body ul, body ol {
+    margin: 1rem 0;
     padding-left: 2rem; }
   body ol {
     list-style-type: decimal; }
