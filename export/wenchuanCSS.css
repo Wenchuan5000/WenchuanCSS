@@ -198,6 +198,9 @@ body {
       -webkit-transform: translate(0, -50%);
       margin-top: 0.875rem;
       vertical-align: middle; }
+    body ul .task-list-item input:checked + {
+      color: red !important;
+      text-decoration: line-through !important; }
   body details {
     margin: 1rem 0;
     margin-left: 1rem; }
