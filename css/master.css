@@ -155,7 +155,7 @@ img {
   .markdown-body blockquote, .md blockquote {
     margin: 1.5rem 0;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 0px 1rem; }
+    padding: 0 1rem; }
   .markdown-body img, .markdown-body figure, .md img, .md figure {
     margin: 0 auto; }
   .markdown-body > figure,
@@ -182,6 +182,7 @@ img {
     .markdown-body figure figcaption p:last-of-type, .md figure figcaption p:last-of-type {
       margin-bottom: 0; }
   .markdown-body ul, .markdown-body ol, .md ul, .md ol {
+    margin: 1rem 0;
     padding-left: 2rem; }
   .markdown-body ol, .md ol {
     list-style-type: decimal; }
